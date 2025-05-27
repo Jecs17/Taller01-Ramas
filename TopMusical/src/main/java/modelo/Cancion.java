@@ -37,7 +37,7 @@ public class Cancion implements Comparable<Cancion> {
     }
 
     public String getTitulo() {
-        return titulo;
+        return cantante + " - " + titulo;
     }
 
     public String getCantante() {
