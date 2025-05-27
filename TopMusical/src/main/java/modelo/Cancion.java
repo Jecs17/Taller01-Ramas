@@ -95,9 +95,9 @@ public class Cancion implements Comparable<Cancion> {
         return lista;
     }
 
-    @Override
+     @Override
     public int compareTo(Cancion o) {
-        return posActual - o.posActual;
+        return o.posActual - this.posActual; //Cambio forma descendente
     }
 
 }
