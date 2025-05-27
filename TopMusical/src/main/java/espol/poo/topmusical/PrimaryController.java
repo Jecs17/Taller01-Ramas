@@ -37,6 +37,10 @@ public class PrimaryController {
             HBox hb = new HBox(10);//hbox para ubicar info de cada cancion
             Label lbp = new Label(c.getPosActual() + "");
             lbp.setStyle("-fx-font-weight: bold;-fx-font-size: 40;");
+
+            Label lbArtista = new Label(c.getCantante());
+            lbArtista.setStyle("-fx-font-weight: bold; -fx-font-size: 16;");
+
             ImageView iv = new ImageView();
             try {
                 Image img = new Image(new FileInputStream("img/" + c.getImagen()), 50, 50, true, true);
@@ -45,10 +49,12 @@ public class PrimaryController {
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
             }
-            Label lbT = new Label(c.getTitulo() + " \n" + c.getCantante());//titulo y cantante
-            lbT.setStyle("-fx-font-weight: bold;-fx-font-size: 14;");
 
-            hb.getChildren().addAll(lbp, iv, lbT);//agregar al hbox
+            // Mostrar: Artista - Título
+            Label lbTitulo = new Label(c.getTitulo());
+            lbTitulo.setStyle("-fx-font-size: 14;");
+
+            hb.getChildren().addAll(lbp, lbArtista, iv, lbTitulo);//agregar al hbox
 
             hb.setOnMouseClicked(eh -> mostrarHistorial(c));//establecer el evento del click
             vbTop10.getChildren().add(hb);//agregar al vbox
